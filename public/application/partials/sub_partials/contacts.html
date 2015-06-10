@@ -1,0 +1,16 @@
+<div class="col-md-4">
+	<h3 class="panel-title">Contacts</h3>
+	<div>
+		<input type="search" id="search" placeholder="search" />
+		<span></span>
+	</div>
+	<br>
+	<br>
+	<div class="contacts">
+		<ul>
+			<li ng-repeat="contact in contacts">
+				<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}</a>
+			</li>
+		</ul>
+	</div>
+</div>

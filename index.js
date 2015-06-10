@@ -103,7 +103,7 @@ function randomNotifier() {
     notifications[contactId] = true;
     setTimeout(randomNotifier,Math.floor(Math.random() * (10000 - 1000) + 1000));
 }
-// setTimeout(randomNotifier,Math.floor(Math.random() * (10000 - 1000) + 1000));
+setTimeout(randomNotifier,Math.floor(Math.random() * (10000 - 1000) + 1000));
 
 app.get('/api/notifications',function(req,res) {
     var n = notifications;

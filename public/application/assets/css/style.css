@@ -1,0 +1,92 @@
+body{
+	
+}
+
+#search{
+	/*border-radius:20px;
+	padding:5px;
+	*/
+}
+
+.contacts{
+	padding:none;
+}
+.contacts ul{
+	padding:0px;
+	border:1px solid black;
+	height:200px;
+	overflow: auto;
+}
+
+.contacts li{
+	list-style: none;
+	border-bottom:1px solid #e1e1e1 !important;
+	height:60px;
+	padding:5px;
+}
+
+.contacts li a{
+	vertical-align:center;
+	cursor: pointer;	
+}
+
+#name span{
+	font-size:28px;
+
+}
+
+#number{
+	
+}
+
+#chat{
+	height:83px;
+}
+
+#chat_box{
+	border:1px solid #E1E1E1 !important;
+	width:500px;
+}
+
+#chat_box ul{
+	height:190px;
+	overflow: auto;
+}
+
+#chat_box ul li{
+	list-style: none;
+}
+
+
+#chat_box ul li[type=sent]{
+	background-color:#0096d6;
+	float:left;
+	clear:both;
+	width:auto;
+	display: block;
+	margin:5px;
+	padding:5px;
+	color:#FFFFFF;
+	border-radius:20px;
+}
+
+
+#chat_box ul li[type=recv]{
+	background-color:#8AC007;
+	float:right;
+	clear:both;
+	width:auto;
+	display: block;
+	margin:5px;
+	padding:5px;
+	color:#FFFFFF;
+	border-radius:20px;
+}
+
+
+
+#message{
+	margin-top:20px;
+	width:420px;
+	margin-right:20px;
+}
