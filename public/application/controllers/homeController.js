@@ -1,51 +1,50 @@
-chatapp.controller('HomeCtrl',['$scope','$http','$q',function($scope,$http,$q){
+chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','getMessages','getNotifications','userService',function($scope,$http,$q,getContacts,getMessages,getNotifications,userService){
 	$scope.contacts=[];
-	$scope.notify=[];
 	
 	$http.get('/api/contacts').success(function(data,error){
 		for(var i=0;i<data.contacts.length;i++){
-			$http.get('/api/contacts/'+data.contacts[i]).success(function(data){
-				$scope.selectedUser=$scope.contacts[0];
+			if(i==0){
+				getCurrentMessages(data.contacts[0]);
+			}		
+			getContacts.getEachContact(data.contacts[i],i).then(function(data) {
 				$scope.contacts.push(data.contact);
-				console.log($scope.contacts);
-			});
+				userService.setCurrentUser($scope.contacts[0]);
+			}); 
 		}
+
 	}).error(function(data,error){
 		console.log(error);
 	});
 	
+	
+	
+	function getCurrentMessages(user_id){
+		getMessages.getContactMessages(user_id).then(function(data) {
+			$scope.history = "";
+			$scope.history = data.messages;
+		}); 
+	}
+	
 	$scope.currentUser=function(){
-		$scope.selectedUser=$(this)[0].contact;
-		console.log($scope.notify.indexOf($(this)[0].contact.id));
-		// $scope.notify.splice($(this)[0].contact.id,$scope.notify.indexOf($(this)[0].contact.id));
-		// console.log($scope.notify);
+		userService.setCurrentUser($(this)[0].contact);
+		var current_user_id=userService.getCurrentUser().id;
 		
-		// GET /api/contacts/{id}/messages
-		
-		$http.get('/api/contacts/'+$(this)[0].contact.id+'/messages').success(function(data, error) {
-			console.log(data);
-			$scope.history="";
-			$scope.history=data.messages;
-		}).error(function() {
+		//check if current id exists in the array
+		if($scope.notify.indexOf(current_user_id)>-1){
+			$scope.notify.splice($scope.notify.indexOf(current_user_id),1);
+		}
 
-		}); 	
+		// GET /api/contacts/{id}/messages
+		getCurrentMessages(current_user_id);
+		return current_user_id;
 	};
 	
 	setInterval(function(){
-		$http.get('/api/notifications').success(function(data, error) {
-			$scope.notifs=Object.keys(data.notifications);
-			for(var i=0;i<$scope.notifs.length;i++){
-				console.log($scope.notify.indexOf($scope.notifs[i])>-1);
-				if($.inArray($scope.notifs[i], $scope.notify) > -1){
-					console.log('already there');
-				}else{
-					$scope.notify.push($scope.notifs[i]);
-				}
-			}
-			console.log($scope.notify);
-		}).error(function(data,error){
-			console.log(error);
+		getCurrentMessages(userService.getCurrentUser().id);
+		
+		getNotifications.getNewNotifications().then(function(data){
+			console.log(data);
+			$scope.notify=data;
 		});
 	},5000);
-	
 }]);
