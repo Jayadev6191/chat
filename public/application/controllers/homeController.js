@@ -24,8 +24,15 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q',function($scope,$http,$q){
 			$scope.history=data.messages;
 		}).error(function() {
 
-		}); 
-
-		
+		}); 	
 	};
+	
+	setInterval(function(){
+		$http.get('/api/notifications').success(function(data, error) {
+			console.log(Object.keys(data.notifications));
+		}).error(function(data,error){
+			console.log(error);
+		});
+	},5000);
+	
 }]);
