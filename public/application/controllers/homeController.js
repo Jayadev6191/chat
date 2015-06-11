@@ -16,6 +16,9 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q',function($scope,$http,$q){
 	
 	$scope.currentUser=function(){
 		$scope.selectedUser=$(this)[0].contact;
+		console.log($scope.notify.indexOf($(this)[0].contact.id));
+		// $scope.notify.splice($(this)[0].contact.id,$scope.notify.indexOf($(this)[0].contact.id));
+		// console.log($scope.notify);
 		
 		// GET /api/contacts/{id}/messages
 		
