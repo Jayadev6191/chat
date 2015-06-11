@@ -1,5 +1,6 @@
 chatapp.controller('HomeCtrl',['$scope','$http','$q',function($scope,$http,$q){
 	$scope.contacts=[];
+	$scope.notify=[];
 	
 	$http.get('/api/contacts').success(function(data,error){
 		for(var i=0;i<data.contacts.length;i++){
@@ -29,7 +30,16 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q',function($scope,$http,$q){
 	
 	setInterval(function(){
 		$http.get('/api/notifications').success(function(data, error) {
-			console.log(Object.keys(data.notifications));
+			$scope.notifs=Object.keys(data.notifications);
+			for(var i=0;i<$scope.notifs.length;i++){
+				console.log($scope.notify.indexOf($scope.notifs[i])>-1);
+				if($.inArray($scope.notifs[i], $scope.notify) > -1){
+					console.log('already there');
+				}else{
+					$scope.notify.push($scope.notifs[i]);
+				}
+			}
+			console.log($scope.notify);
 		}).error(function(data,error){
 			console.log(error);
 		});

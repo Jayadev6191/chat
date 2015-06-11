@@ -9,7 +9,7 @@
 	<div class="contacts">
 		<ul>
 			<li ng-repeat="contact in contacts">
-				<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}</a>
+				<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1"><i class="fa fa-comment"></i></span></a>
 			</li>
 		</ul>
 	</div>
