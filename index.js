@@ -54,6 +54,7 @@ app.get('/api/contacts/:id/messages',function(req,res) {
 });
 
 app.post('/api/contacts/:id/messages',function(req,res) {
+	console.log(req.body);
     var contact = data.contacts[req.params.id];
     if (!contact) {
         res.status(404).json({
@@ -91,7 +92,7 @@ function randomNotifier() {
 
     var message = data.newMessages[Math.floor(Math.random() * data.newMessages.length)];
 
-    console.log('Message recieved from %s: %s',contact.name,message);
+    // console.log('Message recieved from %s: %s',contact.name,message);
     contact.messages.push({
         type: 'recv',
         content: message

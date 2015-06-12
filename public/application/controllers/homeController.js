@@ -1,15 +1,17 @@
-chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','getMessages','getNotifications','userService',function($scope,$http,$q,getContacts,getMessages,getNotifications,userService){
+chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','messages','getNotifications','userService',function($scope,$http,$q,getContacts,messages,getNotifications,userService){
 	$scope.contacts=[];
 	$scope.notify=[];
+	$scope.selectedUser=userService.getCurrentUser();
 	
 	$http.get('/api/contacts').success(function(data,error){
 		for(var i=0;i<data.contacts.length;i++){
 			if(i==0){
-				getCurrentMessages(data.contacts[0]);
+				$scope.getCurrentMessages(data.contacts[0]);
 			}		
 			getContacts.getEachContact(data.contacts[i],i).then(function(data) {
 				$scope.contacts.push(data.contact);
 				userService.setCurrentUser($scope.contacts[0]);
+				$scope.selectedUser=userService.getCurrentUser();
 			}); 
 		}
 
@@ -17,35 +19,49 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','getMessages'
 		console.log(error);
 	});
 	
-	
-	
-	function getCurrentMessages(user_id){
-		getMessages.getContactMessages(user_id).then(function(data) {
+	$scope.getCurrentMessages=function(user_id){
+		messages.getContactMessages(user_id).then(function(data) {
 			$scope.history = "";
 			$scope.history = data.messages;
 		}); 
-	}
+	};
+	
+	$scope.sendMessage=function(msg){
+		var new_message={
+			content:msg
+		};
+		var message=JSON.stringify(new_message);
+		
+		messages.postContactMessages($scope.selectedUser.id,message);
+		$('#message').val('');
+	};
 	
 	$scope.currentUser=function(){
 		userService.setCurrentUser($(this)[0].contact);
+		$scope.selectedUser=userService.getCurrentUser();
 		var current_user_id=userService.getCurrentUser().id;
-		console.log(current_user_id);
+		
 		//check if current id exists in the array
-		// console.log($scope.notify);
 		if($scope.notify.indexOf(current_user_id)>-1){
 			$scope.notify.splice($scope.notify.indexOf(current_user_id),1);
 		}
 
 		// GET /api/contacts/{id}/messages
-		getCurrentMessages(current_user_id);
+		$scope.getCurrentMessages(current_user_id);
 		return current_user_id;
 	};
 	
 	setInterval(function(){
-		getCurrentMessages(userService.getCurrentUser().id);
+		$scope.getCurrentMessages(userService.getCurrentUser().id);
 		
 		getNotifications.getNewNotifications().then(function(data){
 			$scope.notify=data;
 		});
 	},5000);
+	
+	
+	$(document).on("click", "#clear_search", function(e) {
+		e.stopImmediatePropagation();
+		$('#search').val('');
+	}); 
 }]);

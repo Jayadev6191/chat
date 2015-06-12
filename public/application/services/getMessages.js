@@ -1,4 +1,4 @@
-chatapp.factory('getMessages',['$http','$q',function($http,$q){
+chatapp.factory('messages',['$http','$q',function($http,$q){
 		var messages={};
 		
 		messages.getContactMessages=function(contact_id){
@@ -11,5 +11,14 @@ chatapp.factory('getMessages',['$http','$q',function($http,$q){
 			
 			return deferred.promise;
 		};
+		
+		messages.postContactMessages=function(contact_id,message){
+			$http.post('/api/contacts/'+contact_id+'/messages',message).success(function(data, status, headers, config) {
+				console.log(data);
+			}).error(function(reason, status, headers, config) {
+				console.log(reason);
+			});
+		};
+		
 	return messages;
 }]);

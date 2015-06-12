@@ -1,16 +1,32 @@
-<div class="col-md-4">
-	<h3>Contacts</h3>
-	<div>
-		<input type="search" id="search" placeholder="search" ng-model="searchContact"/>
-		<span></span>
+<div class="col-md-4" id="contact_column">
+	<div id="contact_column_inner">
+		<div class="row">
+		<h3>Contacts</h3>
+		<div>
+			<div id="search_container" class="form-control">
+				<div><input type="search" id="search" placeholder="search" ng-model="searchContact"/></div>
+				<div id="clear_search"><i class="fa fa-times-circle fa-2x"></i></div>
+			</div>
+		</div>
 	</div>
-	<br>
-	<br>
-	<div class="contacts">
-		<ul>
-			<li ng-repeat="contact in contacts | filter:searchContact">
-				<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1"><i class="fa fa-comment"></i></span></a>
-			</li>
-		</ul>
+	
+	<div class="row">
+		<div class="contacts">
+			<ul>
+				<li ng-repeat="contact in contacts | filter:searchContact" class="contact_name_container">
+					
+						<span class="contact_icon">
+							<i class="fa fa-user fa-x"></i>
+						</span>
+						<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}
+							<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1">
+								<i class="fa fa-comment"></i>
+							</span>
+						</a>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
 	</div>
 </div>

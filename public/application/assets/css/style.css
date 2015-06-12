@@ -1,5 +1,18 @@
 body{
-	
+	background-color:#202020;
+}
+
+.app_container{
+	margin-left:15%;
+	margin-right:20%;
+}
+
+#contact_column_inner{
+	margin:20px;
+}
+
+#chat_column_inner{
+	margin:20px;
 }
 
 #search{
@@ -13,8 +26,8 @@ body{
 }
 .contacts ul{
 	padding:0px;
-	border:1px solid black;
-	height:200px;
+	border:1px solid #E1E1E1 !important;
+	height:220px;
 	overflow: auto;
 }
 
@@ -22,21 +35,49 @@ body{
 	list-style: none;
 	border-bottom:1px solid #e1e1e1 !important;
 	height:60px;
-	padding:5px;
+	padding-left:5px;
+    line-height:60px;
 }
 
 .contacts li a{
 	vertical-align:center;
-	cursor: pointer;	
+	cursor: pointer;
+	text-decoration:none;
+	color:gray;
+}
+
+.contacts li div.contact_name_container{
+	display: inline;
+}
+
+#contact_column h3{
+	color:gray;
+}
+
+.contact_icon{
+	margin:1px;
+	color:gray;
+}
+
+.info i{
+	border:2px dotted gray;
+	padding:2px;
+	color:gray;
+}
+
+#details{
+	padding:10px;
+	display:block;
 }
 
 #name span{
 	font-size:28px;
-
+	color:gray;
+	
 }
 
 #number{
-	
+	color:gray;
 }
 
 #chat{
@@ -46,6 +87,7 @@ body{
 #chat_box{
 	border:1px solid #E1E1E1 !important;
 	width:500px;
+	height: 220px;
 }
 
 #chat_box ul{
@@ -83,7 +125,22 @@ body{
 	border-radius:10px;
 }
 
+#search_container{
+	width:220px;
+	height:30px;
+	padding:0px;
+}
 
+#search{
+	/*border-radius: 10px;*/
+	display:inline;
+	border:none;
+	float:left;
+}
+
+#clear_search{
+	display:inline;
+}
 
 #message{
 	margin-top:20px;
@@ -93,4 +150,25 @@ body{
 
 .notification{
 	margin-left: 20px;
+}
+
+#search_container ::-webkit-input-placeholder {
+   color: gray;
+   font-size:18px;
+}
+
+#search_container :-moz-placeholder { /* Firefox 18- */
+   color: gray;  
+}
+
+#search_container ::-moz-placeholder {  /* Firefox 19+ */
+   color: gray;  
+}
+
+#search_container :-ms-input-placeholder {  
+   color: gray;  
+}
+
+textarea:focus, input:focus{
+    outline: 0;
 }
