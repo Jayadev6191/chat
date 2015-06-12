@@ -2,6 +2,7 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','messages','g
 	$scope.contacts=[];
 	$scope.notify=[];
 	$scope.selectedUser=userService.getCurrentUser();
+	$scope.query="";
 	
 	$http.get('/api/contacts').success(function(data,error){
 		for(var i=0;i<data.contacts.length;i++){
