@@ -4,8 +4,8 @@
 		<h3>Contacts</h3>
 		<div>
 			<div id="search_container" class="form-control">
-				<div><input type="search" id="search" placeholder="search" ng-model="searchContact"/></div>
-				<div id="clear_search"><i class="fa fa-times-circle fa-2x"></i></div>
+				<div><input type="search" id="search" placeholder="search" ng-model="query"/></div>
+				<div id="clear_search"><i class="fa fa-times-circle fa-2x" ng-click="query=''"></i></div>
 			</div>
 		</div>
 	</div>
@@ -13,12 +13,12 @@
 	<div class="row">
 		<div class="contacts">
 			<ul>
-				<li ng-repeat="contact in contacts | filter:searchContact" class="contact_name_container">
+				<li ng-repeat="contact in contacts | filter:query" class="contact_name_container" ng-click="currentUser()">
 					
 						<span class="contact_icon">
 							<i class="fa fa-user fa-x"></i>
 						</span>
-						<a id="{{contact.id}}" ng-click="currentUser()">{{contact.name}}
+						<a id="{{contact.id}}">{{contact.name}}
 							<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1">
 								<i class="fa fa-comment"></i>
 							</span>

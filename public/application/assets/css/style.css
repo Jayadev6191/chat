@@ -37,6 +37,7 @@ body{
 	height:60px;
 	padding-left:5px;
     line-height:60px;
+    cursor: pointer;
 }
 
 .contacts li a{
@@ -48,6 +49,32 @@ body{
 
 .contacts li div.contact_name_container{
 	display: inline;
+}
+
+.contacts ::-webkit-scrollbar {
+	background:#202020;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #0096d6; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,255,0.4); 
 }
 
 #contact_column h3{
@@ -82,6 +109,7 @@ body{
 
 #chat{
 	height:83px;
+	margin-bottom:20px;
 }
 
 #chat_box{
@@ -91,7 +119,7 @@ body{
 }
 
 #chat_box ul{
-	height:190px;
+	height:210px;
 	overflow: auto;
 }
 
@@ -114,7 +142,7 @@ body{
 
 
 #chat_box ul li[type=recv]{
-	background-color:#8AC007;
+	background-color:gray;
 	float:right;
 	clear:both;
 	width:auto;
@@ -126,7 +154,7 @@ body{
 }
 
 #search_container{
-	width:220px;
+	width:200px;
 	height:30px;
 	padding:0px;
 }
@@ -144,7 +172,7 @@ body{
 
 #message{
 	margin-top:20px;
-	width:420px;
+	width:410px;
 	margin-right:20px;
 }
 
@@ -152,6 +180,9 @@ body{
 	margin-left: 20px;
 }
 
+#search_container{
+	margin-bottom: 20px;
+}
 #search_container ::-webkit-input-placeholder {
    color: gray;
    font-size:18px;
@@ -171,4 +202,8 @@ body{
 
 textarea:focus, input:focus{
     outline: 0;
+}
+
+#submit{
+	background-color:#0096d6;
 }
