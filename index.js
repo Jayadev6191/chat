@@ -92,7 +92,7 @@ function randomNotifier() {
 
     var message = data.newMessages[Math.floor(Math.random() * data.newMessages.length)];
 
-    // console.log('Message recieved from %s: %s',contact.name,message);
+    console.log('Message recieved from %s: %s',contact.name,message);
     contact.messages.push({
         type: 'recv',
         content: message
