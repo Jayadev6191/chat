@@ -1,6 +1,34 @@
 body{
-	background-color:#202020;
+	background-color:#FFFFFF;
 }
+
+nav{
+	background-color:#5bc5a7 !important;
+	border:none !important;
+}
+
+
+.navbar-brand {
+    position: absolute;
+    left: -100px;
+    /*width: 100px;*/
+    background: none;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+
+
 
 .app_container{
 	margin-left:15%;
@@ -154,7 +182,7 @@ body{
 }
 
 #search_container{
-	width:180px;
+	width:205px;
 	height:30px;
 	padding:0px;
 }
