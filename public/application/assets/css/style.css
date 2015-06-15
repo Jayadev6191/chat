@@ -68,13 +68,18 @@ nav{
 	box-shadow: 5px 5px 3px #888888;
 }
 
+.contacts li#search{
+	background-color: #5bc5a7 !important;
+	display: block
+}
 .contacts li{
 	list-style: none;
 	border-bottom:1px solid #e1e1e1 !important;
 	height:60px;
-	padding-left:5px;
+	padding-left:15px;
     line-height:60px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .contacts li a{
@@ -141,9 +146,9 @@ nav{
 }
 
 .info i{
-	border:2px dotted gray;
+	border:2px dotted #5bc5a7;
 	padding:2px;
-	color:gray;
+	color:#5bc5a7;
 }
 
 #details{
@@ -154,12 +159,11 @@ nav{
 #name span{
 	font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif!important;
 	font-size:28px;
-	color:gray;
-	
+	color:#5bc5a7;
 }
 
 #number{
-	color:gray;
+	color:#5bc5a7;
 }
 
 #chat{
@@ -168,13 +172,14 @@ nav{
 }
 
 #chat_box{
-	border:1px solid #E1E1E1 !important;
-	width:500px;
-	height: 220px;
+	border-bottom:1px solid #E1E1E1 !important;
+	width:100%;
+	height: 420px;
 }
 
 #chat_box ul{
-	height:210px;
+	height: 420px;
+	width:100%;
 	overflow: auto;
 }
 
@@ -184,7 +189,7 @@ nav{
 
 
 #chat_box ul li[type=sent]{
-	background-color:#0096d6;
+	background-color:gray;
 	float:left;
 	clear:both;
 	width:auto;
@@ -193,11 +198,13 @@ nav{
 	padding:5px;
 	color:#FFFFFF;
 	border-radius:10px;
+	font-size:12px;
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 
 #chat_box ul li[type=recv]{
-	background-color:gray;
+	background-color:#ff652f;
 	float:right;
 	clear:both;
 	width:auto;
@@ -206,6 +213,8 @@ nav{
 	padding:5px;
 	color:#FFFFFF;
 	border-radius:10px;
+	font-size:12px;
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 #search_container{
@@ -227,7 +236,7 @@ nav{
 
 #message{
 	margin-top:20px;
-	width:410px;
+	width:90%;
 	margin-right:20px;
 }
 
@@ -260,5 +269,5 @@ textarea:focus, input:focus{
 }
 
 #submit{
-	background-color:#0096d6;
+	background-color:#5bc5a7 !important;
 }

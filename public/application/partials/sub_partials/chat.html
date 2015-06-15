@@ -1,20 +1,21 @@
 <div class="col-md-8" id="chat_column">
 	<div id="chat_column_inner">
 		<div class="row" id="chat">
-		<div class="col-md-2">
-			<div class="info">
-				<i class="fa fa-user fa-5x"></i>
+			<div class="col-md-2">
+				<div class="info">
+					<i class="fa fa-user fa-5x"></i>
+				</div>
+			</div>
+			<div class="col-md-6" id="details">
+				<div id="name">
+					<span>{{selectedUser.name}}</span>
+				</div>
+				<div id="number">
+					<h6>{{selectedUser.phone}}</h6>
+				</div>
 			</div>
 		</div>
-		<div class="col-md-6" id="details">
-			<div id="name">
-				<span>{{selectedUser.name}}</span>
-			</div>
-			<div id="number">
-				<h6>{{selectedUser.phone}}</h6>
-			</div>
-		</div>
-	</div>
+		<hr>
 	<div class="row">
 		<div id="chat_box">
 			<ul>
@@ -25,7 +26,7 @@
 	<div class="row">
 		<div id="message_container">
 			<form ng-submit="sendMessage(message)" ng-model="message_form">
-				<input type="text" id="message" ng-model="message" /><input type="submit" value="submit" class="btn btn-info" id="submit"/>
+				<input type="textarea" rows="3" id="message" ng-model="message" /><input type="submit" value="submit" class="btn btn-info" id="submit"/>
 			</form>
 		</div>
 	</div>

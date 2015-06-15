@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="contacts">
 			<ul>
+				<li>Search</li>
 				<li ng-repeat="contact in contacts | filter:query" class="contact_name_container" ng-click="currentUser()">
 					
 						<div class="contact_icon">
@@ -14,7 +15,6 @@
 								<i class="fa fa-comment"></i>
 							</span>
 						</a>
-					
 				</li>
 			</ul>
 		</div>
