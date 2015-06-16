@@ -1,9 +1,9 @@
-<div class="col-md-8" id="chat_column">
+<div class="col-md-9" id="chat_column">
 	<div id="chat_column_inner">
 		<div class="row" id="chat">
 			<div class="col-md-2">
 				<div class="info">
-					<i class="fa fa-user fa-5x"></i>
+					<img src="/application/assets/user.png">
 				</div>
 			</div>
 			<div class="col-md-6" id="details">
@@ -16,13 +16,13 @@
 			</div>
 		</div>
 		<hr>
-	<div class="row">
-		<div id="chat_box">
-			<ul>
-				<li ng-repeat="message in history" type="{{message.type}}">{{message.content}}</li>
-			</ul>
+		<div class="row" id="chat_box">
+			<div>
+				<ul>
+					<li ng-repeat="message in history" type="{{message.type}}">{{message.content}}</li>
+				</ul>
+			</div>
 		</div>
-	</div>
 	<div class="row">
 		<div id="message_container">
 			<form ng-submit="sendMessage(message)" ng-model="message_form">

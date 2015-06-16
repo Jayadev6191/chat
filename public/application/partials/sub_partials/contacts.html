@@ -1,20 +1,24 @@
-<div class="col-md-4" id="contact_column">
+<li id="find_contact">
+	<span>
+		<input class="form-control" id="inputdefault" type="text" ng-model="query" placeholder="Search Content" >
+	</span>
+</li>
+<div class="col-md-3" id="contact_column">
 	<div id="contact_column_inner">
 	<div class="row">
 		<div class="contacts">
 			<ul>
-				<li>Search</li>
-				<li ng-repeat="contact in contacts | filter:query" class="contact_name_container" ng-click="currentUser()">
-					
-						<div class="contact_icon">
-							<!-- <i class="fa fa-user fa-x"></i> -->
-							<img src="/application/assets/user.png" />
-						</div>
-						<a id="{{contact.id}}">{{contact.name}}
-							<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1">
-								<i class="fa fa-comment"></i>
-							</span>
-						</a>
+				
+				<li ng-repeat="contact in contacts | filter:query" id="{{contact.id}}" ng-class="{activate:$index == selected}" ng-click="currentUser($index)">
+					<div class="contact_icon">
+						<!-- <i class="fa fa-user fa-x"></i> -->
+						<img src="/application/assets/user.png" />
+					</div>
+					<a>{{contact.name}}
+						<span class="notification" ng-show="notify.indexOf('{{contact.id}}')>-1">
+							<i class="fa fa-comment"></i>
+						</span>
+					</a>
 				</li>
 			</ul>
 		</div>

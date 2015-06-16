@@ -33,16 +33,18 @@ nav{
 .app_container .container{
 	padding:0px !important;
 	width:100% !important;
-	/*margin-left:15%;
-	margin-right:20%;*/
 }
 
 #contact_column_inner{
 	
 }
 
+#chat_column{
+	margin:0px !important;
+}
+
 #chat_column_inner{
-	margin:20px;
+	margin-left:20px;
 }
 
 #search{
@@ -65,7 +67,7 @@ nav{
 	border:none;
 	height:680px;
 	overflow: auto;
-	box-shadow: 5px 5px 3px #888888;
+	/*box-shadow: 5px 5px 3px #888888;*/
 }
 
 .contacts li#search{
@@ -82,14 +84,17 @@ nav{
     font-size: 20px;
 }
 
+.contacts li:nth-child(1){
+	border-top:1px solid #e1e1e1 !important;
+}
+
 .contacts li a{
-	vertical-align:center;
 	cursor: pointer;
 	text-decoration:none;
 	color:gray;
 }
 
-.contacts li div.contact_name_container{
+.contacts li div{
 	display: inline;
 }
 
@@ -145,10 +150,12 @@ nav{
 	color:gray;
 }
 
-.info i{
-	border:2px dotted #5bc5a7;
+.info img{
+	/*border:2px dotted #000000;*/
 	padding:2px;
 	color:#5bc5a7;
+	width:100px;
+	height:100px;
 }
 
 #details{
@@ -175,6 +182,7 @@ nav{
 	border-bottom:1px solid #E1E1E1 !important;
 	width:100%;
 	height: 420px;
+	margin:0px !important;
 }
 
 #chat_box ul{
@@ -189,7 +197,7 @@ nav{
 
 
 #chat_box ul li[type=sent]{
-	background-color:gray;
+	background-color:#5bc5a7;
 	float:left;
 	clear:both;
 	width:auto;
@@ -204,7 +212,7 @@ nav{
 
 
 #chat_box ul li[type=recv]{
-	background-color:#ff652f;
+	background-color:gray;
 	float:right;
 	clear:both;
 	width:auto;
@@ -270,4 +278,36 @@ textarea:focus, input:focus{
 
 #submit{
 	background-color:#5bc5a7 !important;
+}
+
+.contacts li.activate > a{
+	color:#5bc5a7;
+}
+
+#find_contact{
+	/*/*padding:0px ;*/
+	display: inline;
+	background-color:#5bc5a7;
+}
+
+#find_contact > span{
+	top:7px;
+	left:28px;
+	position:absolute;
+}
+
+#find_contact > #inputdefault{
+	height:60px;
+	font-size:28px;
+	border:none;
+	border-bottom:1px solid #e1e1e1 !important;
+	width:200px !important;
+	top:20px;
+}
+
+#find_contact > #inputdefault:focus{
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }

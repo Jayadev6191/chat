@@ -12,11 +12,11 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','messages','g
 	$scope.notify=[];
 	$scope.selectedUser=userService.getCurrentUser();
 	$scope.query="";
-	
 	$http.get('/api/contacts').success(function(data,error){
 		for(var i=0;i<data.contacts.length;i++){
 			if(i==0){
 				$scope.getCurrentMessages(data.contacts[0]);
+				$scope.selected=i;
 			}		
 			getContacts.getEachContact(data.contacts[i],i).then(function(data) {
 				$scope.contacts.push(data.contact);
@@ -46,11 +46,11 @@ chatapp.controller('HomeCtrl',['$scope','$http','$q','getContacts','messages','g
 		$('#message').val('');
 	};
 	
-	$scope.currentUser=function(){
+	$scope.currentUser=function(index){
+		$scope.selected=index;
 		userService.setCurrentUser($(this)[0].contact);
-		$scope.selectedUser=userService.getCurrentUser();
 		var current_user_id=userService.getCurrentUser().id;
-		
+		$scope.selectedUser=userService.getCurrentUser();
 		//check if current id exists in the array
 		if($scope.notify.indexOf(current_user_id)>-1){
 			$scope.notify.splice($scope.notify.indexOf(current_user_id),1);
