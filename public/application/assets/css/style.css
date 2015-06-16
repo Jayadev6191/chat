@@ -39,12 +39,22 @@ nav{
 	
 }
 
+hr{
+	margin:0px;	
+}
+
+#chat{
+	width:750px;
+}
+
 #chat_column{
 	margin:0px !important;
+	padding:0px;
 }
 
 #chat_column_inner{
 	margin-left:20px;
+	padding:0px;
 }
 
 #search{
@@ -65,7 +75,7 @@ nav{
 	padding-left:20px;
 	/*border:1px solid #E1E1E1 !important;*/
 	border:none;
-	height:680px;
+	height:640px;
 	overflow: auto;
 	/*box-shadow: 5px 5px 3px #888888;*/
 }
@@ -189,6 +199,7 @@ nav{
 	height: 420px;
 	width:100%;
 	overflow: auto;
+	padding:20px;
 }
 
 #chat_box ul li{
@@ -315,4 +326,13 @@ textarea:focus, input:focus{
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
+}
+
+#message_container{
+	width:800px;
+}
+
+#message_container form #message{
+	width:680px;
+	height:50px;
 }
